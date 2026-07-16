@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="384px" height="390px" viewBox="0 0 384 390" style="background:transparent;" font-family="'DejaVu Sans Mono','Menlo','Consolas',monospace">
+<rect x="0.75" y="0.75" width="382.5" height="388.5" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+<text x="192.0" y="20" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f172a">World</text>
+<line x1="0.75" y1="30" x2="383.25" y2="30" stroke="#334155" stroke-width="1"/>
+<text x="12" y="50" font-size="13" fill="#0f172a">width: Int</text>
+<text x="12" y="70" font-size="13" fill="#0f172a">height: Int</text>
+<text x="12" y="90" font-size="13" fill="#0f172a">cellSize: Int</text>
+<text x="12" y="110" font-size="13" fill="#0f172a">background: Image</text>
+<text x="12" y="130" font-size="13" fill="#0f172a">numberOfObjects: Int</text>
+<text x="12" y="150" font-size="13" fill="#0f172a">isClicked: Boolean</text>
+<line x1="0.75" y1="160" x2="383.25" y2="160" stroke="#334155" stroke-width="1"/>
+<text x="12" y="180" font-size="13" fill="#0f172a">World(width: Int, height: Int, cellSize: Int)</text>
+<text x="12" y="200" font-size="13" fill="#0f172a">show()</text>
+<text x="12" y="220" font-size="13" fill="#0f172a">act()</text>
+<text x="12" y="240" font-size="13" fill="#0f172a">addObject(actor: Actor, x: Int, y: Int)</text>
+<text x="12" y="260" font-size="13" fill="#0f172a">removeObject(actor: Actor)</text>
+<text x="12" y="280" font-size="13" fill="#0f172a">getObjects&lt;T&gt;(): List&lt;T&gt;</text>
+<text x="12" y="300" font-size="13" fill="#0f172a">getObjectsAt(x: Int, y: Int): List&lt;Actor&gt;</text>
+<text x="12" y="320" font-size="13" fill="#0f172a">allObjects(): List&lt;Actor&gt;</text>
+<text x="12" y="340" font-size="13" fill="#0f172a">setBackground(fileName: String)</text>
+<text x="12" y="360" font-size="13" fill="#0f172a">setBackground(r: Int, g: Int, b: Int)</text>
+<text x="12" y="380" font-size="13" fill="#0f172a">showText(text: String, x: Int, y: Int)</text>
+</svg>

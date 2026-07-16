@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="288px" height="410px" viewBox="0 0 288 410" style="background:transparent;" font-family="'DejaVu Sans Mono','Menlo','Consolas',monospace">
+<rect x="0.75" y="0.75" width="286.5" height="408.5" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+<text x="144.0" y="20" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f172a">Actor</text>
+<line x1="0.75" y1="30" x2="287.25" y2="30" stroke="#334155" stroke-width="1"/>
+<text x="12" y="50" font-size="13" fill="#0f172a">world: World</text>
+<text x="12" y="70" font-size="13" fill="#0f172a">image: Image</text>
+<text x="12" y="90" font-size="13" fill="#0f172a">x: Int</text>
+<text x="12" y="110" font-size="13" fill="#0f172a">y: Int</text>
+<text x="12" y="130" font-size="13" fill="#0f172a">rotation: Int</text>
+<text x="12" y="150" font-size="13" fill="#0f172a">isAtEdge: Boolean</text>
+<text x="12" y="170" font-size="13" fill="#0f172a">isClicked: Boolean</text>
+<line x1="0.75" y1="180" x2="287.25" y2="180" stroke="#334155" stroke-width="1"/>
+<text x="12" y="200" font-size="13" fill="#0f172a">Actor()</text>
+<text x="12" y="220" font-size="13" fill="#0f172a">act()</text>
+<text x="12" y="240" font-size="13" fill="#0f172a">move(distance: Int)</text>
+<text x="12" y="260" font-size="13" fill="#0f172a">turn(degrees: Int)</text>
+<text x="12" y="280" font-size="13" fill="#0f172a">turnTowards(x: Int, y: Int)</text>
+<text x="12" y="300" font-size="13" fill="#0f172a">distanceTo(other: Actor): Int</text>
+<text x="12" y="320" font-size="13" fill="#0f172a">intersects(other: Actor): Boolean</text>
+<text x="12" y="340" font-size="13" fill="#0f172a">getIntersecting&lt;T&gt;(): List&lt;T&gt;</text>
+<text x="12" y="360" font-size="13" fill="#0f172a">getOneIntersecting&lt;T&gt;(): T?</text>
+<text x="12" y="380" font-size="13" fill="#0f172a">isTouching&lt;T&gt;(): Boolean</text>
+<text x="12" y="400" font-size="13" fill="#0f172a">removeTouching&lt;T&gt;()</text>
+</svg>

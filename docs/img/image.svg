@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="376px" height="390px" viewBox="0 0 376 390" style="background:transparent;" font-family="'DejaVu Sans Mono','Menlo','Consolas',monospace">
+<rect x="0.75" y="0.75" width="374.5" height="388.5" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+<text x="188.0" y="20" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f172a">Image</text>
+<line x1="0.75" y1="30" x2="375.25" y2="30" stroke="#334155" stroke-width="1"/>
+<text x="12" y="50" font-size="13" fill="#0f172a">width: Int</text>
+<text x="12" y="70" font-size="13" fill="#0f172a">height: Int</text>
+<line x1="0.75" y1="80" x2="375.25" y2="80" stroke="#334155" stroke-width="1"/>
+<text x="12" y="100" font-size="13" fill="#0f172a">Image(width: Int, height: Int)</text>
+<text x="12" y="120" font-size="13" fill="#0f172a">Image(fileName: String)</text>
+<text x="12" y="140" font-size="13" fill="#0f172a">Image(other: Image)</text>
+<text x="12" y="160" font-size="13" fill="#0f172a">setColor(r: Int, g: Int, b: Int)</text>
+<text x="12" y="180" font-size="13" fill="#0f172a">fill()</text>
+<text x="12" y="200" font-size="13" fill="#0f172a">fillRect(x: Int, y: Int, w: Int, h: Int)</text>
+<text x="12" y="220" font-size="13" fill="#0f172a">drawRect(x: Int, y: Int, w: Int, h: Int)</text>
+<text x="12" y="240" font-size="13" fill="#0f172a">fillOval(x: Int, y: Int, w: Int, h: Int)</text>
+<text x="12" y="260" font-size="13" fill="#0f172a">drawOval(x: Int, y: Int, w: Int, h: Int)</text>
+<text x="12" y="280" font-size="13" fill="#0f172a">drawLine(x1: Int, y1: Int, x2: Int, y2: Int)</text>
+<text x="12" y="300" font-size="13" fill="#0f172a">drawString(text: String, x: Int, y: Int)</text>
+<text x="12" y="320" font-size="13" fill="#0f172a">drawImage(image: Image, x: Int, y: Int)</text>
+<text x="12" y="340" font-size="13" fill="#0f172a">clear()</text>
+<text x="12" y="360" font-size="13" fill="#0f172a">scale(width: Int, height: Int)</text>
+<text x="12" y="380" font-size="13" fill="#0f172a">setTransparency(value: Int)</text>
+</svg>

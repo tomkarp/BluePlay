@@ -1,0 +1,8 @@
+# Kompilierte Artefakte (werden von BlueJ/Kotlin neu erzeugt)
+*.class
+*.ctxt
+META-INF/
+doc/
+
+# Lokale Claude-Code-Einstellungen
+.claude/

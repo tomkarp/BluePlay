@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600px" height="270px" viewBox="0 0 600 270" style="background:transparent;" font-family="'DejaVu Sans Mono','Menlo','Consolas',monospace">
+  <!-- connections first (behind the boxes) -->
+  <!-- inheritance MyWorld -> World -->
+  <line x1="105" y1="190" x2="105" y2="92" stroke="#334155" stroke-width="1.5"/>
+  <polygon points="105,78 98,92 112,92" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <!-- inheritance Player -> Actor -->
+  <line x1="315" y1="190" x2="315" y2="92" stroke="#334155" stroke-width="1.5"/>
+  <polygon points="315,78 308,92 322,92" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <!-- association: World contains Actor (simple arrow) -->
+  <line x1="180" y1="58" x2="240" y2="58" stroke="#334155" stroke-width="1.5"/>
+  <line x1="240" y1="58" x2="232" y2="53" stroke="#334155" stroke-width="1.5"/>
+  <line x1="240" y1="58" x2="232" y2="63" stroke="#334155" stroke-width="1.5"/>
+  <text x="210" y="34" text-anchor="middle" font-size="12" fill="#0f172a">contains</text>
+  <!-- association: Actor has Image (simple arrow) -->
+  <line x1="390" y1="58" x2="462" y2="58" stroke="#334155" stroke-width="1.5"/>
+  <line x1="462" y1="58" x2="454" y2="53" stroke="#334155" stroke-width="1.5"/>
+  <line x1="462" y1="58" x2="454" y2="63" stroke="#334155" stroke-width="1.5"/>
+  <text x="426" y="34" text-anchor="middle" font-size="12" fill="#0f172a">has</text>
+
+  <!-- framework classes -->
+  <rect x="30" y="38" width="150" height="40" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="105" y="63" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f172a">World</text>
+  <rect x="240" y="38" width="150" height="40" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="315" y="63" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f172a">Actor</text>
+  <rect x="462" y="38" width="120" height="40" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="522" y="63" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f172a">Image</text>
+
+  <!-- your own classes (example) -->
+  <rect x="30" y="190" width="150" height="40" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="105" y="215" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f172a">MyWorld</text>
+  <rect x="240" y="190" width="150" height="40" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="315" y="215" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f172a">Player</text>
+  <text x="105" y="250" text-anchor="middle" font-size="12" font-style="italic" fill="#475569">(your class)</text>
+  <text x="315" y="250" text-anchor="middle" font-size="12" font-style="italic" fill="#475569">(your class)</text>
+</svg>
