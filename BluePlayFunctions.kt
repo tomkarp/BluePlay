@@ -154,8 +154,8 @@ private fun updateControls() {
 internal fun repaintWorld() { canvas.repaint() }
 
 // The image an actor is drawn with: its own image or the shared placeholder.
-// Used by the renderer, the click detection and Actor.bounds() so that display,
-// clicking and collision all agree on the same size.
+// Used by the renderer, click detection and collision detection so all three
+// use the same image.
 @JvmSynthetic
 internal fun imageOrPlaceholder(actor: Actor): Image = actor.image ?: placeholderImage
 

@@ -214,7 +214,7 @@ if (coin != null) {
 | `turn(degrees: Int)` | Turns the heading by `degrees`. |
 | `turnTowards(x: Int, y: Int)` | Turns the heading towards cell (x, y). |
 | `distanceTo(other: Actor): Int` | Distance to another actor (in cells). |
-| `intersects(other: Actor): Boolean` | `true` if this actor's image overlaps the other actor's image. |
+| `intersects(other: Actor): Boolean` | `true` if visible pixels of this actor's image overlap visible pixels of the other actor's image. Transparent pixels are ignored. |
 | `getIntersecting<T>(): List<T>` | All overlapping actor objects of type T. |
 | `getOneIntersecting<T>(): T?` | One overlapping actor of type T, or `null`. |
 | `isTouching<T>(): Boolean` | `true` if at least one actor of type T overlaps. |

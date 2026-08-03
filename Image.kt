@@ -5,12 +5,22 @@ import java.awt.Color
 import java.awt.Graphics2D
 import java.awt.RenderingHints
 import java.awt.image.BufferedImage
+import kotlin.math.ceil
+import kotlin.math.cos
+import kotlin.math.floor
+import kotlin.math.max
+import kotlin.math.min
+import kotlin.math.sin
+import kotlin.math.sqrt
 
 /**
  * An image that can be drawn on and that serves as the appearance of an Actor
  * or the background of a World. Internally backed by a BufferedImage.
  */
 class Image {
+
+    // Ignore nearly transparent antialiasing pixels at image edges.
+    private val collisionAlphaThreshold = 16
 
     // Backing AWT image. Hidden from the BlueJ menus (like 'color') so the
     // java.awt type does not leak into the student API.
@@ -57,6 +67,93 @@ class Image {
 
     val width: Int get() = awtImage.width
     val height: Int get() = awtImage.height
+
+    /** Pixel-perfect overlap test used internally by Actor.intersects(). */
+    @JvmSynthetic
+    internal fun overlaps(
+        firstCenterX: Double,
+        firstCenterY: Double,
+        firstRotation: Int,
+        other: Image,
+        secondCenterX: Double,
+        secondCenterY: Double,
+        secondRotation: Int
+    ): Boolean {
+        // A square around each image's half-diagonal is a cheap broad-phase
+        // test. One extra pixel covers the renderer's integer rounding.
+        val firstRadius = sqrt(
+            width.toDouble() * width + height.toDouble() * height
+        ) / 2.0 + 1.0
+        val secondRadius = sqrt(
+            other.width.toDouble() * other.width +
+                other.height.toDouble() * other.height
+        ) / 2.0 + 1.0
+
+        val left = max(firstCenterX - firstRadius, secondCenterX - secondRadius)
+        val right = min(firstCenterX + firstRadius, secondCenterX + secondRadius)
+        val top = max(firstCenterY - firstRadius, secondCenterY - secondRadius)
+        val bottom = min(firstCenterY + firstRadius, secondCenterY + secondRadius)
+        if (left >= right || top >= bottom) return false
+
+        val firstAngle = Math.toRadians(firstRotation.toDouble())
+        val firstCos = cos(firstAngle)
+        val firstSin = sin(firstAngle)
+        val secondAngle = Math.toRadians(secondRotation.toDouble())
+        val secondCos = cos(secondAngle)
+        val secondSin = sin(secondAngle)
+
+        val firstDrawX = (firstCenterX - width / 2.0).toInt()
+        val firstDrawY = (firstCenterY - height / 2.0).toInt()
+        val secondDrawX = (secondCenterX - other.width / 2.0).toInt()
+        val secondDrawY = (secondCenterY - other.height / 2.0).toInt()
+
+        for (pixelY in floor(top).toInt() until ceil(bottom).toInt()) {
+            val worldY = pixelY + 0.5
+            for (pixelX in floor(left).toInt() until ceil(right).toInt()) {
+                val worldX = pixelX + 0.5
+                if (isOpaqueAt(
+                        worldX, worldY,
+                        firstCenterX, firstCenterY,
+                        firstDrawX, firstDrawY,
+                        firstCos, firstSin
+                    ) &&
+                    other.isOpaqueAt(
+                        worldX, worldY,
+                        secondCenterX, secondCenterY,
+                        secondDrawX, secondDrawY,
+                        secondCos, secondSin
+                    )
+                ) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+    private fun isOpaqueAt(
+        worldX: Double,
+        worldY: Double,
+        centerX: Double,
+        centerY: Double,
+        drawX: Int,
+        drawY: Int,
+        angleCos: Double,
+        angleSin: Double
+    ): Boolean {
+        // Apply the inverse of the rotation used by the renderer.
+        val deltaX = worldX - centerX
+        val deltaY = worldY - centerY
+        val unrotatedX = centerX + angleCos * deltaX + angleSin * deltaY
+        val unrotatedY = centerY - angleSin * deltaX + angleCos * deltaY
+        val imageX = floor(unrotatedX - drawX).toInt()
+        val imageY = floor(unrotatedY - drawY).toInt()
+        if (imageX !in 0 until width || imageY !in 0 until height) return false
+
+        val pixelAlpha = awtImage.getRGB(imageX, imageY) ushr 24
+        val effectiveAlpha = pixelAlpha * transparency / 255
+        return effectiveAlpha > collisionAlphaThreshold
+    }
 
     private fun graphics(): Graphics2D {
         val g = awtImage.createGraphics()

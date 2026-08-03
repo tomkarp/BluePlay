@@ -70,19 +70,27 @@ open class Actor {
     val isClicked: Boolean
         get() = isActorClicked(this)
 
-    /** true if the image rectangles of this and the other actor overlap. */
+    /**
+     * true if visible pixels of this actor's image overlap visible pixels of
+     * the other actor's image.
+     */
     fun intersects(other: Actor): Boolean {
-        val a = bounds(); val b = other.bounds()
-        return a[0] < b[0] + b[2] && a[0] + a[2] > b[0] &&
-               a[1] < b[1] + b[3] && a[1] + a[3] > b[1]
-    }
+        val firstWorld = worldOf(this)
+        val secondWorld = worldOf(other)
+        val firstCellSize = firstWorld?.cellSize ?: 1
+        val secondCellSize = secondWorld?.cellSize ?: 1
+        val firstImage = imageOrPlaceholder(this)
+        val secondImage = imageOrPlaceholder(other)
 
-    private fun bounds(): IntArray {
-        // same size the actor is drawn and clicked with (placeholder if no image)
-        val cs = worldOf(this)?.cellSize ?: 1
-        val img = imageOrPlaceholder(this)
-        val cx = x * cs + cs / 2; val cy = y * cs + cs / 2
-        return intArrayOf(cx - img.width / 2, cy - img.height / 2, img.width, img.height)
+        return firstImage.overlaps(
+            x * firstCellSize + firstCellSize / 2.0,
+            y * firstCellSize + firstCellSize / 2.0,
+            rotation,
+            secondImage,
+            other.x * secondCellSize + secondCellSize / 2.0,
+            other.y * secondCellSize + secondCellSize / 2.0,
+            other.rotation
+        )
     }
 
     // ----- Collision / search via reified generics (call: getOneIntersecting<Wall>()) -----
