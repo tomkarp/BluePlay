@@ -1,5 +1,9 @@
 # BluePlay
 
+> **Dieses Repository ist archiviert und wird nicht mehr weiterentwickelt.**
+> Die gepflegte BluePlay-Variante ist in **[BlueK](https://github.com/tomkarp/BlueK)** integriert.
+> Bitte nutze BlueK für die aktuelle Version und zukünftige Änderungen.
+
 A small **Kotlin game framework for [BlueJ](https://www.bluej.org/)** – a didactic alternative to Greenfoot (which doesn't exist for Kotlin). It lets you
 program simple graphical games and simulations without installing or
 configuring anything beyond BlueJ itself.
